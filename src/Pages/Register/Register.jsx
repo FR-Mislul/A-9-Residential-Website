@@ -1,12 +1,16 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Shared/AuthProvider/AuthProvider";
 import { Slide, ToastContainer, Zoom, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
+
 
 const Register = () => {
 
-    const {createUser}= useContext(AuthContext);
+    const { createUser } = useContext(AuthContext);
+
+    const [showPassword, setShowPassword] = useState()
 
     const handelRegister = e => {
         e.preventDefault();
@@ -19,7 +23,7 @@ const Register = () => {
         console.log(name, email, photo, password);
 
 
-        if(password.length <6){
+        if (password.length < 6) {
             toast.error('Password must be 6 characters', {
                 position: "top-center",
                 autoClose: 5000,
@@ -29,11 +33,11 @@ const Register = () => {
                 draggable: true,
                 progress: undefined,
                 theme: "colored",
-                transition:Zoom,
-                });
-                return;
+                transition: Zoom,
+            });
+            return;
         }
-        else if(!/^(?=.*[A-Z]).+$/ .test(password)){
+        else if (!/^(?=.*[A-Z]).+$/.test(password)) {
             toast.error('Password must be 1 uppercase', {
                 position: "top-center",
                 autoClose: 5000,
@@ -43,40 +47,40 @@ const Register = () => {
                 draggable: true,
                 progress: undefined,
                 theme: "colored",
-                transition:Zoom,
-                });
-                return;
+                transition: Zoom,
+            });
+            return;
         }
 
-        createUser( email, password)
-        .then(result => {
-            console.log(result.user);
-            toast.success('Registration Successfully 😱', {
-                position: "top-center",
-                autoClose: 5000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "colored",
-                transition:Slide,
+        createUser(email, password)
+            .then(result => {
+                console.log(result.user);
+                toast.success('Registration Successfully 😱', {
+                    position: "top-center",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "colored",
+                    transition: Slide,
                 });
-        })
-        .catch(error => {
-            console.error(error);
-            toast.error(error.message.split('/')[1], {
-                position: "top-center",
-                autoClose: 5000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "colored",
-                transition:Zoom,
+            })
+            .catch(error => {
+                console.error(error);
+                toast.error(error.message.split('/')[1], {
+                    position: "top-center",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "colored",
+                    transition: Zoom,
                 });
-        })
+            })
 
     }
 
@@ -106,7 +110,10 @@ const Register = () => {
                     <label className="label">
                         <span className="label-text font-varela font-medium text-base">Password</span>
                     </label>
-                    <input type="password" name="password" placeholder="Your Password" className="input input-bordered" required />
+                    <div className="relative">
+                        <input type={showPassword ? "text" : "password"} name="password" placeholder="Your Password" className="input input-bordered w-full" required />
+                        <span className="absolute top-4 right-6" onClick={() => setShowPassword(!showPassword)}> {showPassword ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>} </span>
+                    </div>
                 </div>
                 <div className="form-control mt-6 mb-4">
                     <button className="btn btn-secondary font-varela">Login</button>
