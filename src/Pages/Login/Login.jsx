@@ -6,7 +6,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
 
-    const {loginUser, googleLogin, githubLogin} = useContext(AuthContext)
+    const {user, loginUser, googleLogin, githubLogin} = useContext(AuthContext)
 
     const handelLogin = e => {
         e.preventDefault();
@@ -15,6 +15,20 @@ const Login = () => {
         const email = form.get('email')
         const password = form.get('password')
         console.log(email, password)
+
+        if(user){
+            toast.error('Already user is logged in', {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+                });
+                return;
+        }
 
         loginUser(email, password)
         .then(result =>{
@@ -47,6 +61,21 @@ const Login = () => {
     }
     const handelGoogleLogin = e => {
         e.preventDefault();
+
+        if(user){
+            toast.error('Already user is logged in', {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+                });
+                return;
+        }
+
         googleLogin()
         .then(result => {
             console.log(result.user);
@@ -78,6 +107,21 @@ const Login = () => {
 
     const handelGithubLogin = e => {
         e.preventDefault()
+
+        if(user){
+            toast.error('Already user is logged in', {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+                });
+                return;
+        }
+        
         githubLogin()
         .then(result => {
             console.log(result.user);

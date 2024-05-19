@@ -3,6 +3,8 @@ import Root from "../Root/Root";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
+import PrivetRoute from "../Pages/PrivetRoute/PrivetRoute";
+import UpdateProfile from "../Pages/UpdateProfile/UpdateProfile";
 
   const Router = createBrowserRouter([
     {
@@ -20,6 +22,10 @@ import Register from "../Pages/Register/Register";
         {
           path: '/register',
           element: <Register></Register>
+        },
+        {
+          path: '/updateProfile',
+          element: <PrivetRoute><UpdateProfile></UpdateProfile></PrivetRoute>
         }
       ]
     },

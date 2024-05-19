@@ -22,7 +22,7 @@ const Navbar = () => {
         <li><NavLink to='/'>Home</NavLink></li>
         <li><NavLink to='/contact'>Contact me</NavLink></li>
         <li><NavLink to='/'>About Us</NavLink></li>
-        <li><NavLink to='/'>Update Profile</NavLink></li>
+        <li><NavLink to='/updateProfile'>Update Profile</NavLink></li>
     </>
 
     return (
