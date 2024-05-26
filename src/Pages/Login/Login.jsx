@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Shared/AuthProvider/AuthProvider";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -11,16 +11,17 @@ const Login = () => {
 
     const [showPassword, setShowPassword] = useState()
 
+    const navigate = useNavigate();
+    const location = useLocation()
+
     const handelLogin = e => {
         e.preventDefault();
-        console.log(e.currentTarget)
-        const form = new FormData(e.currentTarget)
-        const email = form.get('email')
-        const password = form.get('password')
-        console.log(email, password)
+        const form = new FormData(e.currentTarget);
+        const email = form.get('email');
+        const password = form.get('password');
 
         if (user) {
-            toast.error('Already user is logged in', {
+            toast.error('Already user is logged in please Log Out', {
                 position: "top-center",
                 autoClose: 5000,
                 hideProgressBar: false,
@@ -36,6 +37,9 @@ const Login = () => {
         loginUser(email, password)
             .then(result => {
                 console.log(result.user)
+                if(result.user){
+                    navigate(location.state || '/')
+                }
                 toast.success('Log In Successfully 😊', {
                     position: "top-center",
                     autoClose: 5000,
@@ -66,7 +70,7 @@ const Login = () => {
         e.preventDefault();
 
         if (user) {
-            toast.error('Already user is logged in', {
+            toast.error('Already user is logged in please Log Out', {
                 position: "top-center",
                 autoClose: 5000,
                 hideProgressBar: false,
@@ -82,6 +86,9 @@ const Login = () => {
         googleLogin()
             .then(result => {
                 console.log(result.user);
+                if(result.user){
+                    navigate(location.state || '/')
+                }
                 toast.success('Google Login Successfully 🤗', {
                     position: "top-center",
                     autoClose: 5000,
@@ -112,7 +119,7 @@ const Login = () => {
         e.preventDefault()
 
         if (user) {
-            toast.error('Already user is logged in', {
+            toast.error('Already user is logged in please Log Out', {
                 position: "top-center",
                 autoClose: 5000,
                 hideProgressBar: false,
@@ -128,6 +135,9 @@ const Login = () => {
         githubLogin()
             .then(result => {
                 console.log(result.user);
+                if(result.user){
+                    navigate(location.state || '/')
+                }
                 toast.success('GitHub Login Successfully 🤗', {
                     position: "top-center",
                     autoClose: 5000,

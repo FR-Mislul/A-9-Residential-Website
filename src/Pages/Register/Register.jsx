@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Shared/AuthProvider/AuthProvider";
 import { Slide, ToastContainer, Zoom, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -8,9 +8,11 @@ import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 const Register = () => {
 
-    const { createUser } = useContext(AuthContext);
+    const { user, createUser, updateUserProfile} = useContext(AuthContext);
 
     const [showPassword, setShowPassword] = useState()
+    const navigate = useNavigate();
+    const location = useLocation();
 
     const handelRegister = e => {
         e.preventDefault();
@@ -23,7 +25,21 @@ const Register = () => {
         console.log(name, email, photo, password);
 
 
-        if (password.length < 6) {
+        if(user){
+            toast.error('Already user is logged in please Log Out', {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+            });
+            return;
+        }
+
+        else if (password.length < 6) {
             toast.error('Password must be 6 characters', {
                 position: "top-center",
                 autoClose: 5000,
@@ -52,9 +68,31 @@ const Register = () => {
             return;
         }
 
+        else if (!/^(?=.*[a-z]).+$/.test(password)) {
+            toast.error('Password must be 1 lowercase', {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+                transition: Zoom,
+            });
+            return;
+        }
+
         createUser(email, password)
             .then(result => {
                 console.log(result.user);
+                updateUserProfile(name, photo)
+                .then(() => {
+                    if(result.user){
+                        navigate(location.state || '/')
+                    }
+                })
+                
                 toast.success('Registration Successfully 😱', {
                     position: "top-center",
                     autoClose: 5000,

@@ -22,9 +22,9 @@ const Navbar = () => {
         <li><NavLink to='/'>Home</NavLink></li>
         <li><NavLink to='/contact'>Contact me</NavLink></li>
         <li><NavLink to='/'>About Us</NavLink></li>
-        { user &&
-        <li><NavLink to='/updateProfile'>Update Profile</NavLink></li>
-        }
+        
+            <li><NavLink to='/updateProfile'>Update Profile</NavLink></li>
+        
     </>
 
     return (
@@ -60,7 +60,10 @@ const Navbar = () => {
                                         }
                                     </div>
                                     :
-                                    <img className="w-14 h-14 rounded-full" src={user.photoURL} alt="" />
+                                    <div className="  group">
+                                        <p className="invisible group-hover:visible">  {user?.displayName}</p>
+                                        <img className="w-14 h-14 rounded-full mb-5" src={user.photoURL} alt="" />
+                                    </div>
 
                             }
                             <button onClick={handelLogout} className="btn btn-error text-white">Log Out</button>
