@@ -20,9 +20,10 @@ const Navbar = () => {
 
     const navLink = <>
         <li><NavLink to='/'>Home</NavLink></li>
-        <li><NavLink to='/contact'>Contact me</NavLink></li>
-        <li><NavLink to='/'>About Us</NavLink></li>
-        { user &&
+        <li><NavLink to='/state' end>State</NavLink></li>
+        <li><NavLink to='/blog'>Blog</NavLink></li>
+        <li><NavLink to='/contactMe'>Contact me</NavLink></li>
+        {user &&
             <li><NavLink to='/updateProfile'>Update Profile</NavLink></li>
         }
     </>

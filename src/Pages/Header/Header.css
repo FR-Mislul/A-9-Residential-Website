@@ -69,14 +69,14 @@
     transform: rotate(-90deg);
   }
   
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 767px) {
     .swiper-slide img{
-        height: 30vh;
+        height: 40vh;
     }
   }
-  @media screen and (min-width: 600px) {
+  @media screen and (min-width: 767px) {
     .swiper-slide img{
-        height: 60vh;
+        height: 70vh;
     }
   }
   @media screen and (min-width: 900px) {
