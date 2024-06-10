@@ -12,6 +12,10 @@ import './Header.css';
 // import required modules
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 import { useRef } from 'react';
+import img1 from '../../../public/img/stylish-scandinavian-living-room-with-design-mint-sofa-furnitures-mock-up-poster-map-plants-eleg.jpg';
+import img2 from '../../../public/img/comfortable-modern-bedroom-with-elegant-decoration-lighting-generative-ai.jpg';
+import img3 from '../../../public/img/3d-rendering-modern-dining-room-living-room-with-luxury-decor.jpg';
+import img4 from '../../../public/img/luxury-pool-villa-spectacular-contemporary-design-digital-art-real-estate-home-house-property-ge.jpg'
 
 
 const Header = () => {
@@ -38,10 +42,10 @@ const Header = () => {
                 onAutoplayTimeLeft={onAutoplayTimeLeft}
                 className="mySwiper"
             >
-                <SwiperSlide> <img className='' src="../../../public/stylish-scandinavian-living-room-with-design-mint-sofa-furnitures-mock-up-poster-map-plants-eleg.jpg" alt="" /></SwiperSlide>
-                <SwiperSlide> <img className='' src="../../../public/comfortable-modern-bedroom-with-elegant-decoration-lighting-generative-ai.jpg" alt="" /></SwiperSlide>
-                <SwiperSlide> <img className='' src="../../../public/3d-rendering-modern-dining-room-living-room-with-luxury-decor.jpg" alt="" /></SwiperSlide>
-                <SwiperSlide> <img className='' src="../../../public/luxury-pool-villa-spectacular-contemporary-design-digital-art-real-estate-home-house-property-ge.jpg" alt="" /></SwiperSlide>
+                <SwiperSlide> <img className='' src={img1} alt="" /></SwiperSlide>
+                <SwiperSlide> <img className='' src={img2} alt="" /></SwiperSlide>
+                <SwiperSlide> <img className='' src={img3} alt="" /></SwiperSlide>
+                <SwiperSlide> <img className='' src={img4} alt="" /></SwiperSlide>
                 <div className="autoplay-progress" slot="container-end">
                     <svg viewBox="0 0 48 48" ref={progressCircle}>
                         <circle cx="24" cy="24" r="20"></circle>

@@ -1,6 +1,8 @@
 import { useContext } from "react";
 import { AuthContext } from "../../Shared/AuthProvider/AuthProvider";
 import { Navigate } from "react-router-dom";
+import userImg from '../../../public/img/user.jpg'
+
 
 const UpdateProfile = () => {
 
@@ -31,7 +33,7 @@ const UpdateProfile = () => {
             <div className="relative">
                 {
                     user?.photoURL == null ?
-                        <img className="w-28 lg:w-52 md:w-40 h-28 lg:h-52 md:h-40 mx-auto rounded-full" src="../../../public/user.jpg" alt="" />
+                        <img className="w-28 lg:w-52 md:w-40 h-28 lg:h-52 md:h-40 mx-auto rounded-full" src={userImg} alt="" />
                         :
                         <img className="w-28 lg:w-52 md:w-40 h-28 lg:h-52 md:h-40 mx-auto rounded-full" src={user?.photoURL} alt="" />
                 }
