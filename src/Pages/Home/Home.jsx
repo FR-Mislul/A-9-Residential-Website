@@ -14,10 +14,10 @@ const Home = () => {
             .then(res => res.json())
             .then(data => setStates(data))
     }, [])
-    // const states = useLoaderData()
     console.log(states)
     return (
-        <div className="max-w-6xl mx-auto">
+        <div className="w- w-11/12 lg:max-w-6xl mx-auto">
+            
             <Header></Header>
 
             <h1 className="text-xl md:text-3xl lg:text-5xl font-arvo font-bold text-center my-4 md:my-8 lg:my-10 text-gray-700">RE<span className="text-orange-300">CE</span>NT P<span className="text-orange-400">O</span>STS</h1>

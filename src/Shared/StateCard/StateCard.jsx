@@ -19,6 +19,7 @@ const StateCard = ({state}) => {
                 <div className="mx-6 lg:mt-10 space-y-2 relative">
                     <h2 className="card-title font-varela text-base md:text-xl lg:text-2xl">{state?.segment_name}</h2>
                     <h2 className='text-base md:text-lg lg:text-xl font-mono'>{state?.status}</h2>
+                    <p className='font-bold font-lobster'>{state?.area}</p>
                     <div className="flex items-center justify-start font-bold font-lobster">
                         <p ><TbCurrencyTaka className='text-xl'></TbCurrencyTaka ></p>
                         <p className=''>{state?.price}</p>

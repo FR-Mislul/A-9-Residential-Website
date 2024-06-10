@@ -1,9 +1,9 @@
 import { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Shared/AuthProvider/AuthProvider";
-import { ToastContainer, toast } from 'react-toastify';
-  import 'react-toastify/dist/ReactToastify.css';
+
 import { FaEye, FaEyeSlash, FaGoogle, FaGithub } from 'react-icons/fa';
+import toast, { Toaster } from "react-hot-toast";
 
 const Login = () => {
 
@@ -21,48 +21,21 @@ const Login = () => {
         const password = form.get('password');
 
         if (user) {
-            toast.error('Already user is logged in please Log Out', {
-                position: "top-center",
-                autoClose: 5000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "colored",
-            });
+            toast.error("Already user is logged in please Log Out");
             return;
         }
 
         loginUser(email, password)
             .then(result => {
                 console.log(result.user)
-                if(result.user){
+                if (result.user) {
                     navigate(location.state || '/')
                 }
-                toast.success('Log In Successfully 😊', {
-                    position: "top-center",
-                    autoClose: 5000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                    theme: "colored",
-                });
+                toast.success('Log In Successfully 😊');
             })
             .catch(error => {
                 console.log(error)
-                toast.error(error.message.split('/')[1], {
-                    position: "top-center",
-                    autoClose: 5000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                    theme: "colored",
-                });
+                toast.error(error.message.split('/')[1]);
             })
 
     }
@@ -70,48 +43,21 @@ const Login = () => {
         e.preventDefault();
 
         if (user) {
-            toast.error('Already user is logged in please Log Out', {
-                position: "top-center",
-                autoClose: 5000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "colored",
-            });
+            toast.error("Already user is logged in please Log Out");
             return;
         }
 
         googleLogin()
             .then(result => {
                 console.log(result.user);
-                if(result.user){
+                if (result.user) {
                     navigate(location.state || '/')
                 }
-                toast.success('Google Login Successfully 🤗', {
-                    position: "top-center",
-                    autoClose: 5000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                    theme: "colored",
-                });
+                toast.success('Google Login Successfully 🤗');
             })
             .catch(error => {
                 console.error(error)
-                toast.error(error.message.split('/')[1], {
-                    position: "top-center",
-                    autoClose: 5000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                    theme: "colored",
-                });
+                toast.error(error.message.split('/')[1]);
             })
     }
 
@@ -119,48 +65,21 @@ const Login = () => {
         e.preventDefault()
 
         if (user) {
-            toast.error('Already user is logged in please Log Out', {
-                position: "top-center",
-                autoClose: 5000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "colored",
-            });
+            toast.error("Already user is logged in please Log Out");
             return;
         }
 
         githubLogin()
             .then(result => {
                 console.log(result.user);
-                if(result.user){
+                if (result.user) {
                     navigate(location.state || '/')
                 }
-                toast.success('GitHub Login Successfully 🤗', {
-                    position: "top-center",
-                    autoClose: 5000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                    theme: "colored",
-                });
+                toast.success('GitHub Login Successfully 🤗');
             })
             .catch(error => {
                 console.error(error);
-                toast.error(error.message.split('/')[1], {
-                    position: "top-center",
-                    autoClose: 5000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                    theme: "colored",
-                });
+                toast.error(error.message.split('/')[1]);
             })
 
     }
@@ -196,7 +115,11 @@ const Login = () => {
                 <button onClick={handelGoogleLogin} className="btn btn-outline btn-accent"><FaGoogle className="text-2xl"></FaGoogle> Google</button>
                 <button onClick={handelGithubLogin} className="btn btn-outline btn-primary"><FaGithub className="text-2xl"></FaGithub> GitHub</button>
             </div>
-            <ToastContainer />
+            <Toaster
+                position="top-center"
+                reverseOrder={false}
+            />
+            {/* <ToastContainer /> */}
         </div>
     );
 };

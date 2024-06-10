@@ -1,7 +1,7 @@
 
 const Blog = () => {
     return (
-        <div className="max-w-6xl mx-auto my-5">
+        <div className="w-11/12 lg:max-w-6xl mx-auto my-5">
             <h1 className="text-2xl lg:text-3xl font-arvo font-bold">Abut us Residential house and home</h1>
             <div className="space-y-4 lg:space-y-7 mt-4 lg:mt-8">
                 <div className="space-y-2 lg:space-y-4">

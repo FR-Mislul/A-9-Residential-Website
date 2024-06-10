@@ -11,7 +11,7 @@ const State = () => {
     console.log(states)
 
     return (
-        <div className="max-w-6xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 md:gap-6 lg:gap-8 mx-auto my-10">
+        <div className="w-11/12 lg:max-w-6xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 md:gap-6 lg:gap-8 mx-auto my-10">
             {
                 states?.map(state => <StateCard key={state.id} state={state}></StateCard>)
             }

@@ -9,6 +9,7 @@ import StateDetails from "../Pages/StateDetails/StateDetails";
 import State from "../Pages/State/State";
 import Blog from "../Pages/Blog/Blog";
 import Contact from "../Pages/Contact/Contact";
+import Error from "../Pages/Error/Error";
 
 // import State from "../Pages/State/State";
 
@@ -17,6 +18,7 @@ import Contact from "../Pages/Contact/Contact";
     {
       path: "/",
       element: <Root></Root>,
+      errorElement: <Error></Error>,
       children: [
         {
           path: '/',

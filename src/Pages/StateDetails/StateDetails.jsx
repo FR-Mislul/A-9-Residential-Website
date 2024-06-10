@@ -48,7 +48,7 @@ const StateDetails = () => {
                             </div>}
                         </ul>
                     </div>
-
+                    <p className='font-bold text-lg font-lobster'>{state?.area}</p>
                     <div className="flex space-x-2">
                         <p className="font-arvo text-lg font-bold">{state?.status}:</p>
                         <div className="flex items-center justify-start font-bold text-lg font-lobster">
