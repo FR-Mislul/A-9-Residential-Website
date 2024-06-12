@@ -21,7 +21,7 @@ const UpdateProfile = () => {
             .then((result) => {
                 if (result.user) {
                     Navigate(location.state || '/')
-                    console.log("amiiiiiiiii", result.user)
+                    console.log(result.user)
                 }
             })
     }

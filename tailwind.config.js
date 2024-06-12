@@ -12,7 +12,7 @@ export default {
         lobster: '"Lobster Two", sans-serif'
       },
       backgroundImage : {
-        'bg-img': 'linear-gradient(180deg, #1b083f 4%, rgba(163, 154, 181, 0) 100%), url("../../../public/img3d-rendering-house-model.jpg");'
+        'bg-img': 'linear-gradient(180deg, #1b083f 4%, rgba(163, 154, 181, 0) 100%), url("../../../public/img/3d-rendering-house-model.jpg");'
       }
       
     },
