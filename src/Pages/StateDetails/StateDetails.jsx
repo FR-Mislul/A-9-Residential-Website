@@ -2,6 +2,7 @@ import { IoLocationSharp } from "react-icons/io5";
 import { TbCurrencyTaka } from "react-icons/tb";
 import { useLoaderData, useParams } from "react-router-dom";
 import { IoMdArrowDropright } from "react-icons/io";
+import { Helmet } from "react-helmet-async";
 
 
 const StateDetails = () => {
@@ -13,6 +14,11 @@ const StateDetails = () => {
     console.log(states)
 
     return (
+        <div>
+            <Helmet>
+                <title> Dream Home | state Details {state.id} </title>
+            </Helmet>
+
         <div className="max-w-6xl mx-auto my-4 md:my-7 lg:my-10">
             <div className="card lg:card-side bg-base-100 shadow-xl">
                 <div className="w-full lg:w-1/2 bg-[#1313130D] rounded-2xl flex flex-col justify-center p-4 md:p-6 lg:p-8">
@@ -62,6 +68,7 @@ const StateDetails = () => {
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     );
 };

@@ -4,6 +4,7 @@ import { AuthContext } from "../../Shared/AuthProvider/AuthProvider";
 
 import { FaEye, FaEyeSlash, FaGoogle, FaGithub } from 'react-icons/fa';
 import toast, { Toaster } from "react-hot-toast";
+import { Helmet } from "react-helmet-async";
 
 const Login = () => {
 
@@ -85,41 +86,48 @@ const Login = () => {
     }
 
     return (
-        <div className="md:w-3/4 lg:w-1/2 mx-auto my-20 shadow-2xl shadow-gray-400 rounded-2xl p-10">
-            <h1 className="text-3xl font-arvo mb-5">Please Login</h1>
-            <form onSubmit={handelLogin} className="">
-                <div className="form-control">
-                    <label className="label">
-                        <span className="label-text font-varela font-medium text-base">Email</span>
-                    </label>
-                    <input type="email" name="email" placeholder="Your Email" className="input input-bordered" required />
-                </div>
-                <div className="form-control">
-                    <label className="label">
-                        <span className="label-text font-varela font-medium text-base">Password</span>
-                    </label>
-                    <div className="relative">
-                        <input type={showPassword ? "text" : "password"} name="password" placeholder="Your Password" className="input input-bordered w-full " required />
-                        <span className="absolute top-4 right-6" onClick={() => setShowPassword(!showPassword)}> {showPassword ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>} </span>
+        <div>
+
+            <Helmet>
+                <title>Dream Home | Login </title>
+            </Helmet>
+
+            <div className="md:w-3/4 lg:w-1/2 mx-auto my-20 shadow-2xl shadow-gray-400 rounded-2xl p-10">
+                <h1 className="text-3xl font-arvo mb-5">Please Login</h1>
+                <form onSubmit={handelLogin} className="">
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text font-varela font-medium text-base">Email</span>
+                        </label>
+                        <input type="email" name="email" placeholder="Your Email" className="input input-bordered" required />
                     </div>
-                    <label className="label">
-                        <a href="#" className="label-text-alt link link-hover text-sm">Forgot password?</a>
-                    </label>
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text font-varela font-medium text-base">Password</span>
+                        </label>
+                        <div className="relative">
+                            <input type={showPassword ? "text" : "password"} name="password" placeholder="Your Password" className="input input-bordered w-full " required />
+                            <span className="absolute top-4 right-6" onClick={() => setShowPassword(!showPassword)}> {showPassword ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>} </span>
+                        </div>
+                        <label className="label">
+                            <a href="#" className="label-text-alt link link-hover text-sm">Forgot password?</a>
+                        </label>
+                    </div>
+                    <div className="form-control mt-6 mb-4">
+                        <button className="btn btn-primary font-varela">Login</button>
+                    </div>
+                </form>
+                <p className="text-base font-varela">Do not have an account?  <Link className="text-blue-600 underline" to='/register'>Register</Link> </p>
+                <div className="flex justify-center items-center gap-5 mt-5">
+                    <button onClick={handelGoogleLogin} className="btn btn-outline btn-accent"><FaGoogle className="text-2xl"></FaGoogle> Google</button>
+                    <button onClick={handelGithubLogin} className="btn btn-outline btn-primary"><FaGithub className="text-2xl"></FaGithub> GitHub</button>
                 </div>
-                <div className="form-control mt-6 mb-4">
-                    <button className="btn btn-primary font-varela">Login</button>
-                </div>
-            </form>
-            <p className="text-base font-varela">Do not have an account?  <Link className="text-blue-600 underline" to='/register'>Register</Link> </p>
-            <div className="flex justify-center items-center gap-5 mt-5">
-                <button onClick={handelGoogleLogin} className="btn btn-outline btn-accent"><FaGoogle className="text-2xl"></FaGoogle> Google</button>
-                <button onClick={handelGithubLogin} className="btn btn-outline btn-primary"><FaGithub className="text-2xl"></FaGithub> GitHub</button>
+                <Toaster
+                    position="top-center"
+                    reverseOrder={false}
+                />
+                {/* <ToastContainer /> */}
             </div>
-            <Toaster
-                position="top-center"
-                reverseOrder={false}
-            />
-            {/* <ToastContainer /> */}
         </div>
     );
 };

@@ -1,7 +1,13 @@
+import { Helmet } from "react-helmet-async";
 import { FaFacebook, FaInstagram } from "react-icons/fa";
 
 const Contact = () => {
     return (
+        <div>
+            <Helmet>
+                <title>Dream Home | Contact Me </title>
+            </Helmet>
+
         <div className="w-11/12 lg:max-w-6xl mx-auto my-5 space-y-3 md:space-y-5 lg:space-y-7">
             <h1 className="text-2xl lg:text-3xl font-arvo font-bold">Contact me</h1>
             <p className="font-sans font-medium text-base lg:text-lg text-gray-600">We hed love to hear from you! Whether you have questions, need more information, or want to schedule a tour of our community, our team is here to help. Please reach out to us using any of the methods below.</p>
@@ -24,6 +30,7 @@ const Contact = () => {
                     <a className="text-blue-700 underline" href="https://www.instagram.com/frmislulalom/?igsh=MWEwa2JpMTY2c3h2NA%3D%3D">FR Mislul Alom</a>
                 </div>
             </div>
+        </div>
         </div>
     );
 };

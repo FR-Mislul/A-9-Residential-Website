@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../Shared/AuthProvider/AuthProvider";
 import { Navigate } from "react-router-dom";
 import userImg from '../../../public/img/user.jpg'
+import { Helmet } from "react-helmet-async";
 
 
 const UpdateProfile = () => {
@@ -28,6 +29,10 @@ const UpdateProfile = () => {
 
 
     return (
+        <div>
+            <Helmet>
+                <title>Dream Home | User Profile </title>
+            </Helmet>
 
         <div className="md:w-3/4 lg:w-1/2 mx-auto my-10 card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
             <div className="relative">
@@ -74,6 +79,8 @@ const UpdateProfile = () => {
                 </form>
             </div>
         </div>
+        </div>
+
 
     );
 };

@@ -4,6 +4,7 @@ import StateCard from "../../Shared/StateCard/StateCard";
 import { IoIosArrowForward } from "react-icons/io";
 import { useEffect, useState } from "react";
 import AboutUs from "../AboutUs/AboutUs";
+import { Helmet } from "react-helmet-async";
 
 
 const Home = () => {
@@ -17,6 +18,10 @@ const Home = () => {
     console.log(states)
     return (
         <div className="w- w-11/12 lg:max-w-6xl mx-auto">
+
+            <Helmet>
+                <title>Dream Home | Home </title>
+            </Helmet>
             
             <Header></Header>
 
